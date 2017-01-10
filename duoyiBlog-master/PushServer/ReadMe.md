@@ -1,0 +1,3 @@
+1.该模块暂时供大家阅读，如果要本地运行，可自行配置python环境
+2.运行时先启动push包下Run.py，然后修改PushHttpServer中PushHttpServer中getPusher函数中mg_client的host为可用mongodb实例的ip（可以使用我的10.32.4.119）
+3.目前程序相关代码经过测试，于正常情况下使用无恙，后续修改在联合制定通讯协议时制定，望知悉

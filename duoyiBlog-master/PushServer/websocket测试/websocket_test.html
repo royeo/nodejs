@@ -1,0 +1,37 @@
+<form id="send-message" class="form-inline">
+        <input id="name" type="text" value="可以更换名字">
+        <input id="message" type="text" value="要扯淡的内容" />
+       &nbsp; <button class="btn btn-success" type="submit">Send</button>
+</form>
+    <div id="messages"></div>
+<script src="./jquery.js"></script>
+<script>
+var  ws={};
+        $(document).ready(function() {
+            if (!window.WebSocket) {
+                if (window.MozWebSocket) {
+                    window.WebSocket = window.MozWebSocket;
+                } else {
+                    $('#messages').append("<li>Your browser doesn't support WebSockets.</li>");
+                }
+            }
+             ws= new WebSocket('ws://localhost:7000');
+            ws.onopen = function(evt) {
+                $('#messages').append('<li>Connected to chat.</li>');
+            }
+            ws.onmessage = function(evt) {
+                $('#messages').append('<li>' + evt.data + '</li>');
+            }
+			ws.onclose=function(evt){
+			     $('#messages').append('<li> close: ' + evt.data + '</li>');
+			}
+			ws.onerror=function(evt){
+			   $('#messages').append('<li> error : ' + evt.data + '</li>');
+			}
+            $('#send-message').submit(function() {
+                ws.send($('#name').val() + "|" + $('#message').val());
+                $('#message').val('').focus();
+                return false;
+            });
+        });
+</script>
