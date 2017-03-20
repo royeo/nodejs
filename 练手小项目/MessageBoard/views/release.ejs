@@ -1,0 +1,30 @@
+<%- include msgheader %>
+<form method="post">
+    <br />
+    <textarea name="content" id="content" rows="14" cols="85"></textarea><br />
+    <p><input type="button" id="release" value="发   表" /></p>
+    <p>  <div id="msg"></div>  </p>
+</form>
+
+<script>
+    $('#release').click(function () {
+        if(!$('#content').val()) {
+            return $('#msg').html('请输入留言!');
+        }
+
+        $.post("/msgboard/release",{
+            'content': $('#content').val(),
+        },function(result){
+            if(result.code == 0) {
+                $('#msg').html(result.msg);
+                setTimeout(function () {
+                    location.href = '/msgboard';
+                }, 0)
+            } else {
+                $('#msg').html(result.msg);
+            }
+        });
+    });
+</script>
+
+<%- include footer %>

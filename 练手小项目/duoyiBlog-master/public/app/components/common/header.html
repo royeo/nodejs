@@ -1,0 +1,93 @@
+<!--
+需要的变量:
+  brandIcon:商标图片的url
+  brandName:商标名称
+  nickName:用户名(登录时需要)
+  email:邮箱(登录时需要)
+  pswd:用户密码
+  rpswd:注册时产生
+
+
+需要的函数:
+  logOut:登出
+  logIn:登入
+  regist:注册
+-->
+
+
+<div class="navbar-collapse collapse">
+<div class="col-md-7"><img src="{{brandIcon}}">{{c}}</div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+        <template v-if="isLogined">
+             <p>{{nickName}}</p><div class="col-md-3"><button class="btn-danger" v-on:click="logOut">登出</button></div>
+        </template>
+        <template v-else>
+            <button class="btn-primary" data-toggle="modal" data-target="#regModel">注册</button>
+            <button class="btn-primary" data-toggle="modal" data-target="#logModel">登录</button>
+        </template>
+    </div>
+</div>
+<!--注册模态对话框-->
+<div class="modal fade" id="regModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>&times;
+                <h4 class="modal-title" id="regModelLabel">
+                    {{regist_title}}
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="text" id="email" v-model="email" placeholder="邮箱"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="regnickname">昵称</label>
+                        <input type="text" id="regnickname" v-model="nickName" placeholder="昵称"/>
+                    </div>
+                    <div class="form-group">
+                        <lable for="regpswd">密码</lable>
+                        <input type="password" id="regpswd" v-model="pswd" placeholder="密码"/>
+                    </div>
+                    <div class="form-group">
+                        <lable for="regrpswd">确认密码</lable>
+                        <input type="password" id="regrpswd" v-model="rpswd" placeholder="确认您的密码"/>
+                    </div>
+                    <button type="button" v-on:click="regist" class="btn btn-primary pull-right">注册</button>
+                    <button type="bttton" data-dismiss="#regModel">取消</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--登录模态对话框-->
+<div class="modal fade" id="logModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>&times;
+                <h4 class="modal-title" id="logModelLabel">
+                    {{login_title}}
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="logemail">邮箱</label>
+                        <input type="text" id="logemail" v-model="email" placeholder="邮箱"/>
+                    </div>
+                    <div class="form-group">
+                        <lable for="pswd">密码</lable>
+                        <input type="password" id="logpswd" v-model="pswd" placeholder="密码"/>
+                    </div>
+                    <button type="button" v-on:click="logIn" class="btn btn-primary pull-right">登录</button>
+                    <button type="bttton" data-dismiss="#logModel">取消</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

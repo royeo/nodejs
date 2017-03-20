@@ -1,0 +1,35 @@
+<%- include header %>
+<form method="post">
+    <p>用户名：<input type="text" name="name" id="name"/><br /> </p>
+    <p>密码：  <input type="password" name="password" id="password"/><br /></p>
+    <p>     <input type="button" id="login" value="登   录"/></p>
+    <div id="msg"></div>
+</form>
+
+<script>
+    $('#login').click(function () {
+        if(!$('#name').val()) {
+            return $('#msg').html('请输入用户名!');
+        }
+
+        if(!$('#password').val()) {
+            return $('#msg').html('请输入密码!');
+        }
+
+        $.post("/login",{
+            'name': $('#name').val(),
+            'password': $('#password').val(),
+        },function(result){
+            if(result.code == 0) {
+                $('#msg').html(result.msg);
+                setTimeout(function () {
+                    location.href = '/msgboard';
+                }, 0)
+            } else {
+                $('#msg').html(result.msg);
+            }
+        });
+    });
+</script>
+
+<%- include footer %>

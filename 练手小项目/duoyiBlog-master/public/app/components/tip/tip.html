@@ -1,0 +1,65 @@
+<!--
+需要的变量:
+  img:人物卡片头像
+  personId:人物Id
+  info:人物信息(如地点,生日,手机号等),一个字符串
+  desc:人物描述
+  enterTime:注册时间(没有注册时间可以改为最近登录时间)
+  f_total:好友总数
+
+需要的路由:
+  getPersonInfo:获取人物信息 args:{personId:人物Id}
+  getFriends:获得好友列表 args:{personId:人物Id}
+-->
+
+<div class="ui people shape">
+    <div class="sides">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img src="{{img}}" v-link="{name:'getPersonInfo',query:{id:personId}">
+                </div>
+                <div class="content">
+                    <div class="header"><a v-link="{name:'getPersonInfo',query:{id:personId}">{{name}}</a></div>
+                    <div class="meta">
+                        <a>{{info}}</a>
+                    </div>
+                    <div class="description">
+                       <a v-link="{name:'getPersonInfo',query:{id:personId}">{{desc}}</a>
+                    </div>
+                </div>
+                <div class="extra content">
+          <span class="right floated">
+            {{enterTime}}
+          </span>
+          <span>
+            <i class="user icon"></i>
+            <a  v-link="{name:'getFriends',query:{id:personId}">{{f_total}}</a>
+          </span>
+                </div>
+            </div>
+        </div>
+        <div class="side">
+            <div class="ui card">
+                <div class="image">
+                    <img src="{{img}}" v-link="{name:'getPersonInfo',query:{id:personId}">
+                </div>
+                <div class="content">
+                    <a class="header" v-link="{name:'getPersonInfo',query:{id:personId}">{{name}}</a>
+                    <div class="meta">
+                        <span class="date">{{info}}</span>
+                    </div>
+                    <div class="description">
+                        <a v-link="{name:'getPersonInfo',query:{id:personId}">{{desc}}</a>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <a>
+                        <i class="user icon"></i>
+                        <a  v-link="{name:'getFriends',query:{id:personId}"> {{f_total}}</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

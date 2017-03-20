@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//push/Protocals.py=utf-8
+encoding//push/Puhser.py=utf-8
+encoding//push/Run.py=utf-8
+encoding//push/Sock.py=utf-8
+encoding//service/DBClient.py=utf-8
+encoding//service/PushHttpServer.py=utf-8
+encoding//service/PushServer.py=utf-8
+encoding//test/DBTest.py=utf-8
+encoding//test/HttpServerTest.py=utf-8
+encoding//test/TestHandler.py=utf-8
+encoding//test/WebsocketTest.py=utf-8

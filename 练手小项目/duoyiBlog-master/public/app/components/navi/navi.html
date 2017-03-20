@@ -1,0 +1,7 @@
+<div class="ui left demo vertical inverted sidebar labeled icon menu">
+   <template v-for="cat in categories">
+          <a class="item" v-link="{name:'getCat',{query:{cid:cat.id}}">
+              {{cat.title}}
+          </a>
+       </template>
+</div>
