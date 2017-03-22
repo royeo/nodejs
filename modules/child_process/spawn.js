@@ -1,7 +1,7 @@
 //child_process.span会返回一个带有stdout和stderr流的对象。你可以通过stdout流来读取子进程返回给Node.js的数据。
 //stdout拥有’data’,’end’以及一般流所具有的事件。当你想要子进程返回大量数据给Node时，比如说图像处理，读取二进制数据等等，你最好使用spawn方法。
-var spawn = require('child_process').spawn,
-    free = spawn('node', ['./child.js']);
+const spawn = require('child_process').spawn;
+const free = spawn('node', ['./spawn_child.js']);
 
 // 捕获标准输出并将其打印到控制台
 free.stdout.on('data', function (data) {
