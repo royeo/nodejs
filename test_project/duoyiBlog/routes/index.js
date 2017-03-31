@@ -34,7 +34,7 @@ function proxy(fn) {
         res.json({code: 200, msg: data});
       })
       .catch(function (error) {
-        res.json({code: 500, error: error.message || error});
+        res.json({error: error.message || error});
       });
   };
 }
