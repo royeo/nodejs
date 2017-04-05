@@ -1,15 +1,15 @@
 const Sequelize = require('sequelize');
-var sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'mysql'|'mariadb'|'sqlite'|'postgres'|'mssql',
 
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-    },
+// 连接数据库
+const sequelize = new Sequelize('test', 'root', '123');
 
-    // 仅 SQLite 适用
-    storage: 'path/to/database.sqlite'
+// 导入模型
+const User = sequelize.import('./sequelize_model');
+
+// 创建表并写入内容
+User.sync({force: false}).then(function() {
+  return User.create({
+    firstName: 'little',
+    lastName: 'du'
+  })
 });
-
