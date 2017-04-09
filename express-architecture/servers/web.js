@@ -54,7 +54,7 @@ app.use(function (req, res, next) {
   next({status: 'pageNotFound', code: 404});
 });
 
-// 错误处理
+// 所有请求的统一处理
 app.use(finallyResp({
   format: 'JSON',
   encoding: 'utf8',

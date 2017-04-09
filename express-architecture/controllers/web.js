@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function index(req, res, next) {
-  res.render('index');
+  res.render('index', {title: 'Express'});
 }
 
 function help(req, res, next) {

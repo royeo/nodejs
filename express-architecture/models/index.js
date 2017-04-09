@@ -27,8 +27,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-module.exports = {
+module.exports = _.extend({
   sequelize,
   Sequelize,
-  db
-};
+}, db);
