@@ -1,0 +1,342 @@
+﻿*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 100px;
+}
+body{
+	font-size: 0.12rem;
+}
+@media screen
+and (min-width: 320px){
+	html{
+		font-size: 110px;
+	}
+}
+@media screen
+and (min-width: 375px){
+	html{
+		font-size: 117px;
+	}
+}
+@media screen
+and (min-width: 414px){
+	html{
+		font-size: 130px;
+	}
+}
+@media screen
+and (min-width: 768px){
+	html{
+		font-size: 200px;
+	}
+}
+
+body {
+	font-family: 'Microsoft YaHei','.SFUIText-Regular','Helvetica Neue',Helvetica,'Hiragino Sans GB',STHeitiSC-Light,\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
+	color: #333;
+	background-color: #fff;
+} 
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+p{
+	word-break:break-all;
+}
+
+.main{
+	background-color: #e7e7e7;
+}
+.show-goods {
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;}
+
+.show-goods a.cover img{
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	display: block;
+}
+.main .title{
+	font-size: .14rem;
+	margin: .05rem .15rem .1rem;
+	color: #141414;
+}
+
+.show-goods ul.price{
+	padding-bottom: .1rem;
+	margin-left: .5rem;
+}
+p.item{
+	display: block;
+	margin: .1rem 0 0 .15rem;
+	float: left;
+}
+.show-goods ul.price li{
+	display: inline-block;
+	margin: .03rem 0 0 0.1rem;
+	text-align: center;
+	line-height: .3rem;
+	width: .7rem;
+	height: .3rem;
+	border-radius: 4px;
+}
+/*三种按钮样式方便js交互，a-btn为一般按钮，active-btn为选中按钮，off-btn为不可用按钮*/
+.a-btn{
+	background-color: #f5f5f5;
+	border:1px solid #f5f5f5 !important;
+	color: #333;
+}
+.active-btn{
+	background-color: #fe5202;
+	border:1px solid #fe5202 !important;
+	color: #fff;
+}
+.off-btn{
+	background-color: #f5f5f5;
+	color: #ccc;
+	border:1px solid #f5f5f5 !important;
+}
+
+.num{
+	margin-top: 0rem;
+	border-bottom: 1px solid #ddd;
+	background-color: #fff;
+	line-height: .5rem;
+	padding: 0 .15rem;
+}
+
+.num a span{
+	width: 35px;
+	height: 35px;
+	display: table-cell;
+	vertical-align: middle;
+}
+.num a i{
+	display: block;
+	width: 35px;
+	height: 35px;
+	margin: 0 auto;
+}
+a#btn-add i{
+	background: url(../img/btn-plus.svg);
+}
+a#btn-sub i{
+	background: url(../img/btn-sub.svg);
+}
+
+.num a#btn-sub{
+	background-color: #fbfbfb;
+}
+.num a#btn-add{
+	background-color: #f5f5f5;
+}
+.num a.btn{
+	border-color: #dfdfdf;
+}
+.num input,
+.num a{
+	display: table;
+	width: .35rem;
+	float: right;
+	height: .35rem;
+	border:1px solid #bababa;
+	border-radius: 2px;
+	margin: .065rem .03rem;
+}
+.num input{
+	width: 1rem;
+	font-size: .16rem;
+	line-height: .35rem;
+	text-align: center;
+}
+
+.website{
+  border-bottom: 1px solid #ddd;
+	background-color: #fff;
+	line-height: .65rem;
+	width: 100%;
+	padding-top: .08rem;
+}
+.website #website{
+  width: 70%;
+	/*height: .25rem;*/
+	text-align: left;
+	padding-left: 5px;
+	font-size: .12rem;
+	line-height: .25rem;
+	border-radius: 2px;
+	display: block;
+	float: right;
+	margin: 7px 0;
+	border:1px solid #bababa;
+	border-radius: 2px;
+    resize: none;
+}
+.alipay-account{
+	border-bottom: 1px solid #ddd;
+	background-color: #fff;
+	line-height: .4rem;
+	width: 100%;
+	padding-top: .08rem;
+}
+.alipay-account p.error input[type='text'] { border-color: red; -webkit-animation: ring 1s ease; animation: ring 1s ease; }
+
+/**********自定义动画**********/
+/* 左右震动 */
+@-webkit-keyframes ring { 0% { -webkit-transform: translateX(0); }
+  10%,20% { -webkit-transform: translateX(-0.1rem); }
+  30%,50%,70%,90% { -webkit-transform: translateX(0.1rem); }
+  40%,60%,80% { -webkit-transform: translateX(-0.1rem); }
+  100% { -webkit-transform: translateX(0); } }
+@keyframes ring { 0% { transform: translateX(0); }
+  10%,20% { transform: translateX(-0.1rem); }
+  30%,50%,70%,90% { transform: translateX(0.1rem); }
+  40%,60%,80% { transform: translateX(-0.1rem); }
+  100% { transform: translateX(0); } }
+
+/*# sourceMappingURL=style.css.map */
+
+
+.alipay-account p{
+	margin-left: .15rem;
+}
+
+.alipay-account input{
+	width: 50%;
+	height: .25rem;
+	text-align: left;
+	padding-left: 5px;
+	font-size: .12rem;
+	line-height: .25rem;
+	border-radius: 2px;
+	display: block;
+	float: right;
+	margin: 5px .16rem;
+	border:1px solid #bababa;
+}
+
+p.should-pay {
+	width: 100%;
+	height: .45rem;
+	display: block;
+	font-size: .14rem;
+	line-height: .45rem;
+	text-align: right;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+.should-pay span{
+	font-size: .2rem;
+	color: red;
+	margin-right: .2rem;
+}
+
+ul.detail-li{
+	background-color: #fff;
+	border-bottom: 2px solid #e3e3e3;
+}
+
+ul.detail-li p.title{
+	line-height: .5rem;
+	margin: 0 .15rem;
+}
+ul.detail-li li{
+	border-top: 1px solid #e3e3e3;
+	padding: .1rem 0;
+	margin-left: .15rem;
+	line-height: .2rem;
+}
+ul.detail-li li span{
+	display: block;
+	float: left;
+	width: .7rem;
+	color: #5a5a5a;
+}
+ul.detail-li li div{
+	margin-left: .7rem;
+	padding-right: .2rem;
+	color: #1d1d1d;
+}
+
+
+
+.foot-space{
+	width: 100%;
+	height: .5rem;
+	/*margin-top: .05rem;*/
+}
+.bottom-bnt{
+	height: .5rem;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: #fff;
+	border-top: 1px solid #e3e3e3;
+	-webkit-box-shadow:0 -2px 4px rgba(0, 0, 0, 0.2);;
+	   -moz-box-shadow:0 -2px 4px rgba(0, 0, 0, 0.2);;
+	        box-shadow:0 -2px 4px rgba(0, 0, 0, 0.2);;
+}
+.bottom-bnt a{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 20%;
+	height: .5rem;
+	float: left;
+	color: #a4a4a4;
+	font-size: 12px;
+	border-right: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+	text-align: center;
+	position: relative;
+}
+.bottom-bnt a div{
+	width: 100%;
+	position: absolute;
+	margin-top: auto;
+	margin-bottom : auto;
+	top: 0; bottom: 0;
+	height: 42px;
+}
+.bottom-bnt a i{
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin: 0 auto;
+}
+.server i{
+	background: url(../img/icon-kefu-default.svg) no-repeat;
+}
+.act-server i{
+	background: url(../img/icon-kefu-sel.svg) no-repeat;
+}
+.fav i{
+	background: url(../img/icon-collect-default.svg) no-repeat;
+}
+.act-fav i{
+	background: url(../img/icon-collect-sel.svg) no-repeat;
+}
+.share i{
+	background: url(../img/icon-share.svg) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.act-share i{
+	background: url(../img/icon-share-hover.svg) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.bottom-bnt a#buyNow{
+	width: 60%;
+	background-color: #dd2727;
+	color: #fff;
+	font-size: .16rem;
+	line-height: .5rem;
+}
