@@ -14,9 +14,6 @@ const finallyResp = require('../middlewares/finally-resp');
 
 const app = express();
 
-app.set('views', path.join(__dirname, '..', config.view.dir));
-app.set('view engine', config.view.engine);
-
 // 禁用 x-powered-by 头部
 // 防止攻击者可能会使用该头（缺省情况下已启用）来检测运行 Express 的应用程序，然后发动针对特定目标的攻击。
 app.disable('x-powered-by');

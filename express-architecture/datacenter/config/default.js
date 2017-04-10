@@ -14,10 +14,6 @@ module.exports = {
     engine: 'ejs',
     dir: 'views'
   },
-  static: {
-    dir: path.join(__dirname, '../public'),
-    maxAge: 1000 * 60 * 60
-  },
   log: {
     dir            : '../logs',
     nolog          : /\.(js|css|png|jpg|jpeg|ico|svg|gif)/,
