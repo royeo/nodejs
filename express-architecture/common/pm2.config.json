@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "test",
+      "script": "app.js",
+      "merge_logs": true,
+      "instances": 1,
+      "exec_mode": "fork",
+      "autorestart": true,
+      "exec_interpreter": "node",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
