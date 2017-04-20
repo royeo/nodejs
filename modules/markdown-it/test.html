@@ -1,0 +1,41 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><h1>模块机制</h1>
+<h4>Node.js模块的实现</h4>
+<p>在Node中引入模块，过程分为3个步骤：</p>
+<p><a href="https://www.npmjs.com/package/markdown-it#install">https://www.npmjs.com/package/markdown-it#install</a></p>
+<h4>模块编译</h4>
+<p>编译和执行是引入文件模块的最后一个阶段，定位到具体的文件后，Node会新建一个模块对象，然后根据路径载入并编译，对于不同的文件扩展名，其载入方法也不同，如下：</p>
+<ul>
+<li>
+<p><code>.js</code>文件：通过fs模块同步读取文件后编译执行</p>
+</li>
+<li>
+<p><code>.node</code>文件：这是用C/C++编写的扩展模块，通过<code>dlopen()</code>方法加载最后编译生成的文件</p>
+</li>
+<li>
+<p><code>.json</code>文件：通过fs模块同步读取文件后，用<code>JSON.parse()</code>解析返回结果</p>
+</li>
+<li>
+<p>其余扩展文件：被当作<code>.js</code>文件载入</p>
+</li>
+</ul>
+<blockquote>
+<p>在核心模块中，有些模块全部由 <em>C/C++</em> 编写，有些模块则由 <em>C/C++</em> 完成核心部分，其他部分由javascirpt实现包装或向外导出，纯 <em>C/C++</em> 编写的部分统一称为内建模块</p>
+</blockquote>
+<h1>异步编程的优势与难点</h1>
+<h4>偏函数</h4>
+<p>通过指定部分参数来产生一个新的定制函数的形式就是偏函数，如下：</p>
+<pre><code>var isType = function(type) {
+    return function(obj) {
+        return toString.call(obj) == '[object ' + type + ']'
+    }
+}
+
+var isString = isType('String');
+var isFunction = isType('Function');
+</code></pre>
+<h1>内存控制</h1>
+<h4>V8的内存限制</h4>
+<p>在Node中通过javascirpt只能使用部分内存（64位系统下约为1.4GB，32位系统下约为0.7GB），这个限制会导致Node无法直接操作大内存对象，计算机的内存资源无法得到充足的使用。</p>
+<blockquote>
+<p>在启动时添加 --trace_gc 参数，可以查看垃圾回收日志</p>
+</blockquote>
