@@ -28,7 +28,7 @@ function catchError(controller) {
   return function (req, res, next) {
     let ret = controller.apply(this, arguments);
     if (ret && typeof ret.then === 'function') {
-      return ret.catch(err => {
+      return ret.catch((err) => {
         return next({code: 500, msg: err.message || err, err: err});
       });
     }

@@ -27,7 +27,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-module.exports = _.extend({
+module.exports = Object.assign({
   sequelize,
   Sequelize
 }, db);

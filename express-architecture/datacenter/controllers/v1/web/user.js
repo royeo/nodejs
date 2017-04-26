@@ -8,10 +8,10 @@ module.exports = handleError({
   logout
 });
 
-function login(req, res, next) {
+async function login(req, res, next) {
   let name = req.query.name;
-  return userService.getPassword({name})
-    .then(data => next({code: 200, ext: data}));
+  let data = await userService.getPassword({name})
+  return next({code: 200, ext: data});
 }
 
 function reg(req, res, next) {

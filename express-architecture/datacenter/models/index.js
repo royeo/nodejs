@@ -16,7 +16,7 @@ let sequelize = new Sequelize(config.mysql.database, config.mysql.username, conf
 
 fs.readdirSync(__dirname).filter(file => {
   return (file.indexOf('.') !== -1) && (file !== 'index.js');
-}).forEach(file => {
+}).forEach((file) => {
   let model = sequelize.import(path.join(__dirname, file));
   db[model.name] = model;
 });
@@ -27,7 +27,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-module.exports = _.extend({
+module.exports = Object.assign({
   sequelize,
   Sequelize
 }, db);

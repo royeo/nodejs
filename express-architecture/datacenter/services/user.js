@@ -4,6 +4,6 @@ module.exports = {
   getPassword
 };
 
-function getPassword(opt) {
-  return db.User.findOne({where: {name: opt.name}});
+async function getPassword(opt) {
+  return await db.User.findOne({where: {name: opt.name}});
 }
