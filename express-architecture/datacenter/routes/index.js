@@ -15,7 +15,7 @@ const router = express.Router();
 const v1Admin = createRouter(path.join(__dirname, 'v1/admin'));
 const v1Web = createRouter(path.join(__dirname, 'v1/web'));
 
-// validator(router);
+validator(router);
 
 router.use('/webapi/v1', v1Web);
 router.use('/adminapi/v1', v1Admin);

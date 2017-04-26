@@ -6,10 +6,10 @@ const validateMods = require('../../validations');
 const sanitizeMap = {
   isInt: 'toInt',
   isFloat: 'toFloat',
-  isDate: 'isDate',
+  isDate: 'toDate',
   isArray: 'toArray',
-};
   isIntArray: 'toIntArray'
+};
 
 
 // 初始化参数验证中间件
@@ -36,14 +36,18 @@ function validateReq(schema) {
         delete newSchema[key].defaultValue;
       }
     }
-    req.check(newSchema);
-    let result = await req.getValidationResult();
-    if (!result.isEmpty()) {
-      let errors = result.useFirstErrorOnly().array();
-      let errMsg = `参数${errors[0].param}验证错误`;
-      return next({code: 500, msg: errMsg});
-    } else {     
-      reqFilter(schema, req, next);
+    try {
+      req.check(newSchema);
+      let result = await req.getValidationResult();
+      if (!result.isEmpty()) {
+        let errors = result.useFirstErrorOnly().array();
+        let errMsg = `参数${errors[0].param}验证错误`;
+        return next({code: 500, msg: errMsg});
+      } else {     
+        reqFilter(schema, req, next);
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 }
@@ -65,6 +69,8 @@ function reqFilter(schema, req, next) {
       }
     })
   })
+  req.checked = true; // 防止进入其他路由
+  return next();
 }
 
 
@@ -73,8 +79,7 @@ function addDefaultValue(schema) {
   return function (req, res, next) {
     for (let key in schema) {
       if (_.has(schema[key], 'defaultValue') && schema[key].in) {
-        let param = req[schema[key].in][key];
-        param = param ? param : schema[key].defaultValue;
+        req[schema[key].in][key] = req[schema[key].in][key] ? req[schema[key].in][key] : schema[key].defaultValue;
       }
     }
     return next();
