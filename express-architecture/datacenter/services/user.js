@@ -1,9 +1,14 @@
 'use strict';
 
 module.exports = {
-  getPassword
+  verifyAccount,
+  regAccount
 };
 
-async function getPassword(opt) {
-  return await db.User.findOne({where: {name: opt.name}});
+async function regAccount(opt) {
+  return await db.User.create(opt);
+}
+
+async function verifyAccount(opt) {
+  return await db.User.findOne({where: {name: opt.name, password: opt.password}});
 }

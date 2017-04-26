@@ -68,8 +68,8 @@ module.exports = function (options) {
     } else if (page) {
       try {
         res.send(page);
-      } catch (err) {
-        logAndDealError(url, 404, err);
+      } catch (e) {
+        logAndDealError(url, 404, e);
       }
     } else {
       if (err) {

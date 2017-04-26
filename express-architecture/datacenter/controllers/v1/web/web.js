@@ -6,9 +6,9 @@ module.exports = {
 };
 
 function index(req, res, next) {
-  res.send('index');
+  return next({code: 200, ext: "It's is Index."});
 }
 
 function detail(req, res, next) {
-  res.send('detail');
+  return next({code: 200, ext: "It's is Detail."});
 }
