@@ -36,18 +36,14 @@ function validateReq(schema) {
         delete newSchema[key].defaultValue;
       }
     }
-    try {
-      req.check(newSchema);
-      let result = await req.getValidationResult();
-      if (!result.isEmpty()) {
-        let errors = result.useFirstErrorOnly().array();
-        let errMsg = `参数${errors[0].param}验证错误`;
-        return next({code: 500, msg: errMsg});
-      } else {     
-        reqFilter(schema, req, next);
-      }
-    } catch (e) {
-      console.log(e);
+    req.check(newSchema);
+    let result = await req.getValidationResult();
+    if (!result.isEmpty()) {
+      let errors = result.useFirstErrorOnly().array();
+      let errMsg = `参数${errors[0].param}验证错误`;
+      return next({code: 500, msg: errMsg});
+    } else {     
+      reqFilter(schema, req, next);
     }
   };
 }
