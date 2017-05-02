@@ -10,6 +10,7 @@ chai.should();
 require('../global_regist');
 const web = require('../servers/web');
 
+
 global.requestSuccess = (res) => {
   res.RetSucceed.should.equal(true);
   res.Succeed.should.equal(true);
@@ -23,7 +24,8 @@ describe('start servers', function() {
       return app.start();
     });
   });
-  it('starting...');
+  it('start servers', () => {
+  });
 });
 
 describe('start test web', () => {
@@ -32,5 +34,4 @@ describe('start test web', () => {
 
 describe('start test admin', () => {
   require(path.join(__dirname, 'admin'));
-})
-
+});
