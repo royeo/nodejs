@@ -11,6 +11,7 @@ module.exports = handleError({
 
 async function login(req, res, next) {
   let schema = {
+    demo: {in: 'query', isInt: {options: {max: 3, min: 1}}, defaultValue: 2, notEmpty: true},
     name: {in: 'body', notEmpty: true},
     password: {in: 'body', notEmpty: true}
   }
