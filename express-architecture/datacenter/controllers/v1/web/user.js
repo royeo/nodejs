@@ -1,6 +1,7 @@
 'use strict';
 
 const userService = require('../../../services/user');
+const paramValidator = require('../../../middlewares/param-validator/index2');
 
 module.exports = handleError({
   login,
@@ -9,6 +10,14 @@ module.exports = handleError({
 });
 
 async function login(req, res, next) {
+  let schema = {
+    name: {in: 'body', notEmpty: true},
+    password: {in: 'body', notEmpty: true}
+  }
+  let validatorResult = await paramValidator(schema, req);
+  if (validatorResult.name) {
+    return next(validatorResult);
+  }
   let {name, password} = req.body;
   let userInfo = await userService.verifyAccount({name, password});
   if (userInfo) {
