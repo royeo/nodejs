@@ -8,10 +8,7 @@ const sanitizeMap = {
   isIntArray: 'toIntArray'
 };
 
-module.exports = async function (req, res, next) {
-  if (req.checked) {
-    return next();
-  }
+module.exports = async function (schema, req) {
   let newSchema = _.cloneDeep(schema);
   for (let key in newSchema) {
     if (_.has(newSchema[key], 'defaultValue')) {
@@ -29,12 +26,12 @@ module.exports = async function (req, res, next) {
       if (_.has(schema[key], 'defaultValue') && schema[key].in) {
         req[schema[key].in][key] = req[schema[key].in][key] ? req[schema[key].in][key] : schema[key].defaultValue;
       }
-    }  
-    for (let sanitizeKey in sanitizeMap) {
-      if (param[sanitizeKey]) {
-        req.sanitize(key)[sanitizeMap[sanitizeKey]]();
+      for (let sanitizeKey in sanitizeMap) {
+        if (schema[key][sanitizeKey]) {
+          req.sanitize(key)[sanitizeMap[sanitizeKey]]();
+        }
       }
-    }
+    }  
     return {};
   }
 };
