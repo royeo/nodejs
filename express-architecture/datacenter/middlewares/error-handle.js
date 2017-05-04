@@ -26,13 +26,10 @@ module.exports = function (params) {
  */
 function catchError(controller) {
   return function (req, res, next) {
-    let ret = controller.apply(this, arguments);
+    let ret = controller.apply(null, arguments);
     if (ret && typeof ret.then === 'function') {
-      return ret.catch((err) => {
-        return next({code: 500, msg: err.message || err, err: err});
-      });
+      return ret.catch((err) => next({code: 500, msg: err.message || err, err: err}));
     }
-    logger.error(`${controller.name} doesn't return a promise`);
     return ret;
   };
 }
