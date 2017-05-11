@@ -4,7 +4,7 @@
   "description": "datacenter",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/ --bail"
   },
   "dependencies": {
     "bluebird": "^3.5.0",

@@ -20,9 +20,7 @@ global.requestSuccess = (res) => {
 describe('start servers', function() {
   this.timeout(60000);
   before(function() {
-    return Promise.resolve([web]).each(function(app) {
-      return app.start();
-    });
+    web.start();
   });
   it('start servers', () => {
   });
