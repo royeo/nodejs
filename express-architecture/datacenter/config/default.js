@@ -9,11 +9,6 @@ module.exports = {
     port: 5566,
     name: pkg.name
   },
-  view: {
-    cache: {},
-    engine: 'ejs',
-    dir: 'views'
-  },
   log: {
     dir            : '../logs',
     nolog          : /\.(js|css|png|jpg|jpeg|ico|svg|gif)/,
