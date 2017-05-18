@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -8,9 +7,11 @@ const expressSession = require('express-session');
 const SessStore = require('connect-redis')(expressSession);
 const responseTime = require('response-time');
 const compression = require('compression');
+const expressValidator = require('express-validator');
 
 const router = require('../routes');
 const finallyResp = require('../middlewares/finally-resp');
+const validatorConfig = require('../middlewares/param-validator/config');
 
 const app = express();
 
@@ -38,6 +39,8 @@ app.use(expressSession({
   store             : new SessStore(config.redisSession),
   cookie            : {maxAge: 1000 * 60 * 60 * 24 * 7}
 }));
+
+app.use(expressValidator(validatorConfig));
 
 app.use(router);
 

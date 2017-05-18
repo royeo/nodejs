@@ -20,6 +20,7 @@ module.exports = async function (schema, req) {
   if (!result.isEmpty()) {
     let errors = result.useFirstErrorOnly().array();
     let errMsg = `参数${errors[0].param}验证错误`;
+    // errors[0],msg 可以获取 errorMessage
     return Promise.reject(errMsg);
   } else {     
     for (let key in schema) {
