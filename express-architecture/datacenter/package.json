@@ -13,6 +13,7 @@
     "config": "^1.25.1",
     "connect-redis": "^3.2.0",
     "cookie-parser": "~1.4.3",
+    "cron": "^1.2.1",
     "debug": "~2.6.0",
     "ejs": "~2.5.5",
     "express": "~4.14.1",

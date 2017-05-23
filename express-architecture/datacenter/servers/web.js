@@ -65,8 +65,4 @@ function start() {
   });
 }
 
-if (!module.parent) {
-  start();
-} else {
-  exports.start = start;
-}
+exports.start = start;

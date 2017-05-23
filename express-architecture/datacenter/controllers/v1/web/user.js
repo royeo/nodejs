@@ -27,6 +27,7 @@ async function login(req, res, next) {
   };
   await paramValidator(schema, req);
   let {name, password} = req.body;
+  let a = await userService.getProduct();
   let userInfo = await userService.verifyAccount({name, password});
   if (userInfo) {
     return next({code: 200, msg: '登录成功', ext: userInfo});

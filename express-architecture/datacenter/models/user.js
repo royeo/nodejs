@@ -11,15 +11,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING(50),
-      primaryKey: false,
-      autoIncrement: false,
       allowNull: false,
       commemt: '姓名'
     },
     password: {
       type: DataTypes.STRING(50),
-      primaryKey: false,
-      autoIncrement: false,
       allowNull: false,
       commemt: '密码'
     }
