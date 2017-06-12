@@ -3,12 +3,12 @@
 // 定义表结构
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define('Product', {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   primaryKey: true,
-    //   autoIncrement: true,
-    //   allowNull: false
-    // },
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
