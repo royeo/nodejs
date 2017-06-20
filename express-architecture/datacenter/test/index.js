@@ -10,12 +10,17 @@ chai.should();
 require('../global_regist');
 const web = require('../servers/web');
 
-
 global.requestSuccess = (res) => {
   res.RetSucceed.should.equal(true);
   res.Succeed.should.equal(true);
   res.Code.should.equal(200);
-}
+};
+
+global.requestFailed = (res) => {
+  res.RetSucceed.should.equal(true);
+  res.Succeed.should.equal(false);
+  res.Code.should.equal(500);
+};
 
 describe('start servers', function() {
   this.timeout(60000);
