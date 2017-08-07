@@ -4,9 +4,9 @@ const pkg = require('../package.json');
 
 module.exports = {
   web: {
-    url: 'http://127.0.0.1:5566',
+    url: 'http://127.0.0.1:8888',
     host: '127.0.0.1',
-    port: 5566,
+    port: 8888,
     name: pkg.name
   },
   log: {
@@ -28,7 +28,7 @@ module.exports = {
   mysql: {
     host: '127.0.0.1',
     username: 'root',
-    password: '',
+    password: '123',
     port: 3306,
     database: 'test',
     // connectTimeout: 5000,
