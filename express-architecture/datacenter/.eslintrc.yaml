@@ -28,14 +28,11 @@
     _: true
     $: true
     $$: true
-    # utils: true
+    utils: true
     logger: true
     db: true
     models: true
     sequelize: true
-    config: true
-    handleError : true
-    cache : true
 
   # "off"   or 0 - turn the rule off
   # "warn"  or 1 - turn the rule on as a warning (doesn’t affect exit code)
@@ -386,7 +383,7 @@
     no-with: 2
 
     # 总是给parseInt提供第二个参数
-    radix: [1, as-needed]
+    radix: 1
 
     # 是否总是在顶部声明所有的变量。
     vars-on-top: 0
@@ -631,7 +628,7 @@
 
     # 使用Unix换行符"LF"
     # --fix
-    # linebreak-style: [error, unix]
+    linebreak-style: [error, unix]
 
     # 指令周围的语句风格
     lines-around-directive: [error, always]
@@ -655,7 +652,7 @@
     max-statements-per-line: [error, {max: 1}]
 
     # 一个函数中20条语句
-    max-statements: [error, 50, {ignoreTopLevelFunctions: true}]
+    max-statements: [error, 20, {ignoreTopLevelFunctions: true}]
 
     # 三元运算符始终在一行。
     # "multiline-ternary": ["error", "never"],
@@ -703,7 +700,7 @@
     no-multiple-empty-lines: [2, {max: 2, maxEOF: 1}]
 
     # 不允许在if-else中使用否定条件，可以通过调整语句块或者表达式的顺序完全避免`！`
-    no-negated-condition: 0
+    no-negated-condition: 2
 
     # 不允许使用嵌套的三元操作符
     no-nested-ternary: 2
@@ -742,88 +739,8 @@
     #     "ObjectPattern": { "multiline": true }
     # }],
 
-    # 统一在对象字面值中紧贴{}是否添加一个空格, objectsInObj
+    # 统一在对象字面值中紧贴{}是否添加一个空格, objectsInObjects/arraysInObjects
     # --fix
     object-curly-spacing: [2, never]
 
-    object-property-newline: [2, {allowMultiplePropertiesPerLine: true}]
-
-    # 每行只声明一个变量
-    one-var-declaration-per-line: [error, initializations]
-
-    # 一个变量对应一个var
-    one-var: [2, never]
-
-    # 使用使用简写的赋值操作符。+=、-=、*=、/=
-    operator-assignment: [error, always]
-
-    # 统一拆分过长表达式时操作符的位置
-    operator-linebreak: [2, before]
-
-    # 不允许在代码块的开始和结尾添加空行
-    # --fix
-    padded-blocks: [2, never]
-
-    # 对象属性名引号的添加情况，要加全加，要不加全部加
-    quote-props: [2, consistent, {keywords: false, unnecessary: true, numbers: false}]
-
-    # 字符串统一使用单引号包裹，当为了避免转义时可以使用双引号
-    # --fix
-    quotes: [2, single, avoid-escape]
-
-    # 必须写JSDoc
-    # require-jsdoc: [error, {
-    #   require: {
-    #     FunctionDeclaration: true,
-    #     MethodDefinition: false,
-    #     ClassDeclaration: false
-    #   }
-    # }]
-
-    # 当`;`出现在表达式中间时，统一在它的后面添加一个空格，前面不允许有空格
-    # --fix
-    semi-spacing: [2, {before: false, after: true}]
-
-    # 总是使用`;`
-    # --fix
-    semi: [2, always]
-
-    # 不要求对声明的变量按字母顺序进行排序
-    sort-keys: 0
-    sort-vars: 0
-
-    # 统一是否在代码块的左括号前面添加空格
-    # --fix
-    space-before-blocks: 2
-
-    # 命名函数表达式()前面不允许有空格，匿名函数表达式()前面要添加一个空格
-    # --fix
-    space-before-function-paren: [2, {anonymous: always, named: never}]
-
-    # 不允许在()内侧添加空格
-    # --fix
-    space-in-parens: [error, never]
-
-    # 强制在中缀操作符两侧添加一个空格
-    # --fix
-    space-infix-ops: 2
-
-    # 统一一元操作符中空格的使用
-    # --fix
-    space-unary-ops: [2, {words: true, nonwords: false}]
-
-    # 强制在注释前添加一个空格，除了一些标志注释之外
-    # --fix
-    spaced-comment: [2, always, {
-      exceptions: ['-', '+'],
-      # space here to support sprockets directives
-      markers: ['=', '!']
-    }]
-
-    # --fix
-    unicode-bom: [error, never]
-
-    # 是否统一包裹正则表达式
-    # --fix
-    wrap-regex: 0
-
+   
